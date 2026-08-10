@@ -2,8 +2,6 @@
 
 A modern-Perl Mojolicious app to analyze science-words into affixes.
 
-## Run it
-
 ```
 cpanm --installdeps .
 morbo script/word_partition        # dev server, auto-reload
