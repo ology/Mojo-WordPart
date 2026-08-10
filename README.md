@@ -1,4 +1,4 @@
-# Word::Partition
+# Mojo::WordPart
 
 A modern-Perl Mojolicious app to analyze science-words into affixes.
 
