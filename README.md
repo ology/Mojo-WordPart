@@ -1,6 +1,6 @@
 # Mojo::WordPart
 
-A modern-Perl Mojolicious app to analyze science-words into affixes.
+A modern-Perl Mojolicious app to analyze science-words with roots and affixes.
 
 ```shell
 git clone https://github.com/ology/Mojo-WordPart.git
