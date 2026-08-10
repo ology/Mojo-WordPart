@@ -9,4 +9,4 @@ morbo script/word_partition
 hypnotoad script/word_partition
 ```
 
-Configure the DB via environment variables (see `word_partition.conf`).
+Configure the DB via environment variables.
