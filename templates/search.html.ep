@@ -1,0 +1,77 @@
+% layout 'main';
+% title 'Word Parser';
+
+%= include 'partials/_header'
+
+<%= form_for '/search' => (method => 'get') => begin %>
+    <div class="row g-3 align-items-end mb-2">
+        <div class="col-md-3">
+            <label class="form-label" for="query">Query</label>
+            <%= text_field query => stash('query'), placeholder => ' -foo, foo or foo-', autofocus => undef, class => 'form-control' %>
+        </div>
+        <div class="col-md-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="affix" value="affix"
+                    <%== (stash('checked') // '') eq 'affix' ? 'checked' : '' %> />
+                <label class="form-check-label" for="affix">Affix</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="definition" value="definition"
+                    <%== (stash('checked') // '') eq 'definition' ? 'checked' : '' %> />
+                <label class="form-check-label" for="definition">Definition</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Etymology</label>
+            <select name="etymology" class="form-select">
+                <option value="">Any</option>
+                <option value="greek" <%== (stash('etymology') // '') eq 'greek' ? 'selected' : '' %>>Greek</option>
+                <option value="latin" <%== (stash('etymology') // '') eq 'latin' ? 'selected' : '' %>>Latin</option>
+                <option value="other" <%== (stash('etymology') // '') eq 'other' ? 'selected' : '' %>>Other</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" name="submit" class="btn btn-primary">Lookup</button>
+        </div>
+    </div>
+    <div class="mb-4">
+% if (stash('query') && (stash('checked') // '') eq 'affix') {
+        <a href="https://en.wiktionary.org/wiki/<%= stash('query') %>" target="_blank">https://en.wiktionary.org/wiki/<%= stash('query') %></a>
+% }
+    </div>
+<% end %>
+
+% if (length(stash('query') // '')) {
+%   my $results = stash('results');
+%   if ($results && @$results) {
+        <table class="table table-striped table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Affix</th>
+                    <th>Definition</th>
+                    <th>Etymology</th>
+                </tr>
+            </thead>
+            <tbody>
+%   my $i = 0;
+%   for my $r (@$results) {
+%     $i++;
+                <tr>
+                    <td>
+                        <%= $i %>. &nbsp;
+%     if (stash('logged_in_user')) {
+                        <a href="/edit?id=<%= $r->{id} %>" title="Edit part '<%= $r->{affix} %>'"><%= $r->{affix} %></a>
+%     } else {
+                        <%= $r->{affix} %>
+%     }
+                    </td>
+                    <td><%= $r->{definition} %></td>
+                    <td><%= $r->{etymology} %></td>
+                </tr>
+%   }
+            </tbody>
+        </table>
+%   } else {
+        <p class="fw-bold">No result</p>
+%   }
+% }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="robots" content="noindex">
+<title>Word Partition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container py-4">
+% if (my $error = flash('error')) {
+    <div class="alert alert-danger" role="alert"><%= $error %></div>
+% }
+<%= content %>
+</div>
+
+<footer class="text-center text-muted py-4">
+    <hr/>
+    Built by <a href="http://gene.ology.net/">Gene Boggs</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+% layout 'main';
+% title 'Word Parser';
+
+%= include 'partials/_header'
+
+<%= form_for '/build' => (method => 'get') => begin %>
+    <div class="row g-3 align-items-end mb-4">
+        <div class="col-md-4">
+            <label class="form-label" for="query">Definition</label>
+            <%= text_field query => stash('query'), placeholder => ' blue fish', autofocus => undef, class => 'form-control' %>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" name="submit" class="btn btn-primary">Build</button>
+        </div>
+    </div>
+<% end %>
+
+% if (length(stash('query') // '')) {
+%   my $results = stash('results');
+%   if ($results && @$results) {
+        <table class="table table-striped table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Affix</th>
+                    <th>Definition</th>
+                    <th>Etymology</th>
+                </tr>
+            </thead>
+            <tbody>
+%   my $i = 0;
+%   for my $r (@$results) {
+%     $i++;
+                <tr>
+                    <td><%= $i %>. &nbsp; <%= $r->{affix} %></td>
+                    <td><%= $r->{definition} %></td>
+                    <td><%= $r->{etymology} %></td>
+                </tr>
+%   }
+            </tbody>
+        </table>
+%   } else {
+        <p class="fw-bold">No result</p>
+%   }
+% }

@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-4 px-3">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+        <img src="/images/graph-partitioning.png" alt="" height="32" />
+        <span>Word Part</span>
+    </a>
+    <div class="navbar-nav">
+% if (stash('logged_in_user')) {
+        <a class="nav-link<%= current_route eq 'new_entry' ? ' active fw-bold' : '' %>" href="/new">New</a>
+% }
+        <a class="nav-link<%= current_route eq 'search' ? ' active fw-bold' : '' %>" href="/search">Lookup</a>
+        <a class="nav-link<%= current_route eq 'parse' ? ' active fw-bold' : '' %>" href="/parse">Parse</a>
+        <a class="nav-link<%= current_route eq 'build' ? ' active fw-bold' : '' %>" href="/build">Build</a>
+% if (stash('logged_in_user')) {
+        <a class="nav-link" href="/logout">Logout</a>
+% }
+    </div>
+</nav>

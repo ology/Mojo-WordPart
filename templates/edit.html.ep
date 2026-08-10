@@ -1,0 +1,50 @@
+% layout 'main';
+% title 'Word Parser';
+
+%= include 'partials/_header'
+
+<%= form_for "/$method" => (method => 'post') => begin %>
+    <%= hidden_field id => stash('id') %>
+    <div class="row g-3 align-items-end mb-3">
+        <div class="col-md-3">
+            <label class="form-label">Affix</label>
+            <%= text_field affix => stash('affix'), autofocus => undef, placeholder => 'Required', class => 'form-control' %>
+        </div>
+        <div class="col-md-2">
+            <div class="form-check">
+                <input class="form-check-input" id="prefix" name="prefix" type="checkbox"
+                    data-bs-toggle="tooltip" title="Affix is a Prefix">
+                <label class="form-check-label" for="prefix">Prefix</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="suffix" name="suffix" type="checkbox"
+                    data-bs-toggle="tooltip" title="Affix is a Suffix">
+                <label class="form-check-label" for="suffix">Suffix</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Etymology</label>
+            <select name="etymology" class="form-select">
+                <option value="">Choose a language...</option>
+                <option value="greek" <%== (stash('etymology') // '') eq 'greek' ? 'selected' : '' %>>Greek</option>
+                <option value="latin" <%== (stash('etymology') // '') eq 'latin' ? 'selected' : '' %>>Latin</option>
+                <option value="other" <%== (stash('etymology') // '') eq 'other' ? 'selected' : '' %>>Other</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" name="<%= $method %>" class="btn btn-primary"><%= ucfirst $method %></button>
+        </div>
+    </div>
+    <div class="row g-3 align-items-end">
+        <div class="col-md-8">
+            <label class="form-label">Definition</label>
+            <%= text_field definition => stash('definition'), placeholder => 'Required', class => 'form-control' %>
+        </div>
+        <div class="col-md-2">
+% if (stash('id')) {
+            <a href="/delete?id=<%= stash('id') %>" class="btn btn-outline-danger"
+                onclick="return confirm('Delete /<%= stash('affix') %>/ ?')">Delete</a>
+% }
+        </div>
+    </div>
+<% end %>

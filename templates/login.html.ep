@@ -1,0 +1,26 @@
+% layout 'main';
+% title 'Word Parser';
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h1>Login!</h1>
+    <p>You need to log in to continue.</p>
+
+% if (stash('login_fail_message')) {
+    <div class="alert alert-danger"><%= stash('login_fail_message') %></div>
+% }
+
+    <%= form_for '/login' => (method => 'post') => begin %>
+        <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <%= text_field 'username', id => 'username', class => 'form-control' %>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="password">Password</label>
+            <%= password_field 'password', id => 'password', class => 'form-control' %>
+        </div>
+        <%= hidden_field return_url => stash('return_url') %>
+        <button type="submit" class="btn btn-primary">Login</button>
+    <% end %>
+  </div>
+</div>
