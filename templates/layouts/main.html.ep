@@ -8,6 +8,7 @@
 <meta property="og:image" content="/images/graph-partitioning.png">
 <link rel="icon" type="image/png" href="/favicon.ico">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <div class="container py-4">
@@ -22,6 +23,5 @@
     Built by <a href="http://gene.ology.net/">Gene Boggs</a>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
