@@ -14,6 +14,7 @@
         </div>
         <div>
 % if (stash('query')) {
+            <p></p>
             <a href="https://en.wiktionary.org/wiki/<%= stash('query') %>" target="_blank">https://en.wiktionary.org/wiki/<%= stash('query') %></a>
 % }
         </div>

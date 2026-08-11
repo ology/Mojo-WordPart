@@ -1,7 +1,6 @@
 package Word::Partition::Controller::Main;
 use Mojo::Base 'Mojolicious::Controller', -signatures;
 
-use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(Lingua-Word-Parser);
 use Lingua::Word::Parser;
 use Crypt::Passphrase;
 

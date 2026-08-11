@@ -36,6 +36,7 @@
     </div>
     <div class="mb-4">
 % if (stash('query') && (stash('checked') // '') eq 'affix') {
+        <p></p>
         <a href="https://en.wiktionary.org/wiki/<%= stash('query') %>" target="_blank">https://en.wiktionary.org/wiki/<%= stash('query') %></a>
 % }
     </div>
