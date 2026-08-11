@@ -11,12 +11,11 @@ CREATE TABLE api_access (
 );
 
 DROP TABLE IF EXISTS user;
-CREATE TABLE api_access (
+CREATE TABLE user (
     id       INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL,
     password TEXT NOT NULL
 );
-
 
 DROP TABLE IF EXISTS fragment;
 CREATE TABLE fragment (
