@@ -74,7 +74,7 @@ sub add ($c) {
         return $c->redirect_to('/new');
     }
 
-    $c->redirect_to('/search');
+    $c->redirect_to('/new');
 }
 
 =head2 delete_entry
