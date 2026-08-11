@@ -20,7 +20,7 @@
 
 <footer class="text-center text-muted py-4">
     <hr/>
-    Built by <a href="http://gene.ology.net/">Gene Boggs</a>
+    Built by <a href="http://www.ology.net/">Gene</a> with Perl and Mojolicious
 </footer>
 
 </body>

@@ -15,23 +15,6 @@
     </div>
 
     <div class="card mb-3">
-      <div class="card-header fw-bold">Browse the Sources</div>
-      <div class="list-group list-group-flush">
-        <a class="list-group-item list-group-item-action" href="https://metacpan.org/release/Lingua-Word-Parser">Lingua::Word::Parser</a>
-        <a class="list-group-item list-group-item-action" href="https://github.com/ology/Word-Part">Word-Part</a>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header fw-bold">Presentations</div>
-      <div class="list-group list-group-flush">
-        <a class="list-group-item list-group-item-action" href="/WordPart/index.html">Word-part Manipulation</a>
-        <a class="list-group-item list-group-item-action" href="http://techn.ology.net/word-parsing/">Word Parsing</a>
-        <a class="list-group-item list-group-item-action" href="http://techn.ology.net/word-parsing-part-2/">Word Parsing, Part 2</a>
-      </div>
-    </div>
-
-    <div class="card mb-3">
       <div class="card-header fw-bold">Meta</div>
       <div class="list-group list-group-flush">
 % if (stash('logged_in_user')) {
@@ -51,8 +34,8 @@
       <h3>Words are made of components</h3>
       <p>
       The vast majority of scientific terminology has evolved from Latin and Greek forms.
-      A term is made up of ancient roots, prefixes and suffixes.  These parts are known as morphemes.
-      These morphemes can be saved in a lexicon and used to parse a term into its compenents.
+      A term is made up of ancient roots, prefixes and suffixes. These parts are known as morphemes.
+      These morphemes can be saved in a lexicon and used to parse a term into its components.
       </p>
     </div>
 
@@ -61,7 +44,7 @@
       <p>
       A term can be parsed into meaningful morpheme chains.
       There can be many possible chains for a given term, depending on what parts are known (are present in the lexicon).
-      Each chain is given a ratio score based on how familiar the partitions are.  That is known vs unknown parts.
+      Each chain is given a ratio score based on how familiar the partitions are. That is known vs unknown parts.
       </p>
     </div>
 
