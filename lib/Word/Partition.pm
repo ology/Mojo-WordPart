@@ -2,6 +2,7 @@ package Word::Partition;
 use Mojo::Base 'Mojolicious', -signatures;
 
 use Word::Partition::Schema;
+use Mojo::Log ();
 
 our $VERSION = '0.2';
 
@@ -13,6 +14,12 @@ Word::Partition - Interact with word-parts (Mojolicious edition)
 
 sub startup ($self) {
     my $config = $self->plugin('Config' => { file => 'word_partition.conf' });
+
+    my $log = Mojo::Log->new(
+        path  => $config->{log_path},
+        level => $config->{log_level},
+    );
+    $self->log($log);
 
     $self->secrets( $config->{secrets} // ['please-change-this-secret'] );
 

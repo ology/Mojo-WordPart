@@ -298,7 +298,7 @@ sub _parse_word ($c, $query) {
             sort {
                    $b->{familiarity}[1] <=> $a->{familiarity}[1]
                 || $b->{familiarity}[0] <=> $a->{familiarity}[0]
-                || @{ $a->{partition} } <=> @{ $b->{partition} }
+                || $a->{score}{knowns} <=> $b->{score}{knowns}
             } @elements
         ) {
             push @$results, $element;
