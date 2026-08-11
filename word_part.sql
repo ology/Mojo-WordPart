@@ -4,19 +4,25 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS api_access;
 CREATE TABLE api_access (
     id       INTEGER PRIMARY KEY AUTOINCREMENT,
-    token    TEXT NOT NULL DEFAULT '',
-    username TEXT NOT NULL DEFAULT '',
+    token    TEXT NOT NULL,
+    username TEXT NOT NULL,
     created  TEXT NOT NULL,
     active   INTEGER DEFAULT 1
 );
 
-INSERT INTO api_access (id, token, username, created, active) VALUES ('2', '{SSHA}f+Qdj5FlY1RsPhPW3GGw3pN2y9l/SrMz', 'gene', '2015-08-28 00:00:00', '1');
+DROP TABLE IF EXISTS user;
+CREATE TABLE api_access (
+    id       INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);
+
 
 DROP TABLE IF EXISTS fragment;
 CREATE TABLE fragment (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
-    affix      TEXT NOT NULL DEFAULT '',
-    definition TEXT NOT NULL DEFAULT '',
+    affix      TEXT NOT NULL,
+    definition TEXT NOT NULL,
     etymology  TEXT,
     UNIQUE (affix, etymology)
 );
