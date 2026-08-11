@@ -12,7 +12,7 @@
         <div class="col-md-2">
             <button type="submit" name="submit" class="btn btn-primary">Parse</button>
         </div>
-        <div class="col-md-7">
+        <div>
 % if (stash('query')) {
             <a href="https://en.wiktionary.org/wiki/<%= stash('query') %>" target="_blank">https://en.wiktionary.org/wiki/<%= stash('query') %></a>
 % }
